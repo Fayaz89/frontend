@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Side from './Side';
 
 const Limits = () => {
+  const [isSideVisible, setIsSideVisible] = useState(false);
+
+  const toggleSide = () => {
+    setIsSideVisible(!isSideVisible);
+  };
+
   return (
     <div className="min-h-screen flex">
-      <div className="w-1/6 bg-gray-200 p-4">
-        <Side />
-      </div>
-      <div className="w-5/6 p-8">
-        <div className="bg-white shadow-md rounded-lg p-6 flex mb-10">
+      <Side isVisible={isSideVisible} />
+      <main className={`flex-1 p-6 transition-all duration-300 ${isSideVisible ? 'ml-56' : 'ml-0'}`}>
+        <div className="bg-white shadow-md rounded-lg p-6 mb-10 flex">
           <div className="w-1/2 pr-4">
             <div className="mb-4">
               <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
@@ -66,7 +70,7 @@ const Limits = () => {
             </div>
           </div>
         </div>
-      </div>
+      </main>
     </div>
   );
 };

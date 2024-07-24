@@ -12,17 +12,30 @@ import Nav from './Nav';
 import FamilyManagement from './FamilyManagement';
 import Cards from './Cards';
 import Limits from './Limits';
+import { useState } from 'react';
+import Side from './Side';
 
 function App() {
+  const [isSideVisible, setIsSideVisible] = useState(false);
+
+  const toggleSide = () => {
+    setIsSideVisible(!isSideVisible);
+  };
+
   return (
-    <div>
-      <Navbar/>
-      
-    <Outlet/>
-    <Footer/>
+    <div className="flex flex-col min-h-screen">
+      <Navbar toggleSide={toggleSide} />
+      <div className="flex flex-1">
+        <Side isVisible={isSideVisible} />
+        <div className={`flex-1 transition-all duration-300 ${isSideVisible ? 'ml-56' : 'ml-0'}`}>
+          <Outlet />
+        </div>
+      </div>
+      <Footer />
     </div>
   );
 }
+
 const AppRouter= createBrowserRouter([
   {
     path:"/",
