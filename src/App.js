@@ -14,6 +14,7 @@ import Cards from './Cards';
 import Limits from './Limits';
 import { useState } from 'react';
 import Side from './Side';
+import { UserProvider } from './Context/context';
 
 function App() {
   const [isSideVisible, setIsSideVisible] = useState(false);
@@ -23,51 +24,54 @@ function App() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <Navbar toggleSide={toggleSide} />
-      <div className="flex flex-1">
-        <Side isVisible={isSideVisible} />
-        <div className={`flex-1 transition-all duration-300 ${isSideVisible ? 'ml-56' : 'ml-0'}`}>
-          <Outlet />
+    <UserProvider>
+      <div className="flex flex-col min-h-screen">
+
+        <Navbar toggleSide={toggleSide} />
+        <div className="flex flex-1">
+          <Side isVisible={isSideVisible} />
+          <div className={`flex-1 transition-all duration-300 ${isSideVisible ? 'ml-56' : 'ml-0'}`}>
+            <Outlet />
+          </div>
         </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </UserProvider>
   );
 }
 
-const AppRouter= createBrowserRouter([
+const AppRouter = createBrowserRouter([
   {
-    path:"/",
-    element:<App/>,
-    children:[
+    path: "/",
+    element: <App />,
+    children: [
       {
-        path:"/",
-        element:<Login/>
+        path: "/Signin",
+        element: <Login />
       },
       {
-        path:"/family",
-        element:<FamilyManagement/>
+        path: "/family",
+        element: <FamilyManagement />
       },
       {
-        path:"/Profile",
-        element:<Profile/>
+        path: "/Profile",
+        element: <Profile />
       },
       {
-        path:"/SignUp",
-        element:<Register/>
+        path: "/SignUp",
+        element: <Register />
       },
       {
-        path:"/Cards",
-        element:<Cards/>
+        path: "/Cards",
+        element: <Cards />
       },
       {
-        path:"/Limits",
-        element:<Limits/>
+        path: "/Limits",
+        element: <Limits />
       },
       {
-        path:"/dashboard",
-        element:<Dashboard/>
+        path: "/dashboard",
+        element: <Dashboard />
       },
     ],
   },

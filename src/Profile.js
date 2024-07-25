@@ -18,13 +18,12 @@ const Profile = () => {
   };
 
   const updateProfile = () => {
-    // Logic to update the profile
     alert('Profile updated successfully!');
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4 ">
-      <div className="bg-white shadow-md rounded p-6 w-full w-1/2">
+      <div className="bg-white shadow-md rounded p-6 w-full">
         <h2 className="text-2xl mb-4 text-center">Profile Management</h2>
         
         <div className="mb-4">
