@@ -17,7 +17,7 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:8082/users/login', {
+      const response = await fetch('http://34.170.186.220:8081/users/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -97,7 +97,7 @@ const Login = () => {
           {error && <p className="mt-2 text-center text-sm text-red-600">{error}</p>}
           
           <p className="mt-2 text-center text-sm text-gray-600">
-            Don't have an account? <a href="/register" className="font-medium text-indigo-600 hover:text-indigo-500">Register</a>
+            Don't have an account? <a href="/SignUp" className="font-medium text-indigo-600 hover:text-indigo-500">Register</a>
           </p>
         </form>
       </div>

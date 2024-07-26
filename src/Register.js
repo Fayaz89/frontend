@@ -29,7 +29,7 @@ const Register = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:8082/users/register', {
+      const response = await fetch('http://34.170.186.220:8081/users/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -112,7 +112,7 @@ const Register = () => {
 
           <p className="mt-2 py-2 text-center text-sm text-gray-600">
             Already have an account? 
-            <Link to="/login">
+            <Link to="/Signin">
               <span className="font-medium text-indigo-600 hover:text-indigo-500">Sign In</span>
             </Link>
           </p>

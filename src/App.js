@@ -15,6 +15,10 @@ import Limits from './Limits';
 import { useState } from 'react';
 import Side from './Side';
 import { UserProvider } from './Context/context';
+import Analytics from './Analytics';
+import Alerts from './Alerts';
+import Notifications from './Notifications';
+import Home from './Home';
 
 function App() {
   const [isSideVisible, setIsSideVisible] = useState(false);
@@ -46,6 +50,12 @@ const AppRouter = createBrowserRouter([
     element: <App />,
     children: [
       {
+        path:"/",
+        element:<Home/>
+      },
+
+
+      {
         path: "/Signin",
         element: <Login />
       },
@@ -58,8 +68,21 @@ const AppRouter = createBrowserRouter([
         element: <Profile />
       },
       {
+        path:"/Analytics",
+        element:<Analytics/>
+      },
+      {
         path: "/SignUp",
         element: <Register />
+      },
+      {
+        path:"/Alerts",
+        element:<Alerts/>
+      
+      },
+      {
+        path:"/Notifications",
+        element:<Notifications/>
       },
       {
         path: "/Cards",
